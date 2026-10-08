@@ -5,7 +5,7 @@ const rl = readline.createInterface({
     output: process.stdout
 });
 
-// Colores para la consola
+
 const RESET = "\x1b[0m";
 const BLANCO = "\x1b[97m";
 const ROJO = "\x1b[91m";
@@ -19,9 +19,7 @@ const FONDO_VERDE = "\x1b[48;5;22m";
 const FONDO_ROJO = "\x1b[48;5;52m";
 const FONDO_AMARILLO = "\x1b[48;5;58m";
 
-// ==========================================
-// SUPERCLASE: PERSONA
-// ==========================================
+
 class Persona {
     #nombre;
     #apellidos;
@@ -54,9 +52,7 @@ class Persona {
     }
 }
 
-// ==========================================
-// SUBCLASE: HUESPED (HERENCIA DE PERSONA)
-// ==========================================
+
 class Huesped extends Persona {
     #tipoDocumento;
     #documento;
@@ -79,9 +75,7 @@ class Huesped extends Persona {
     }
 }
 
-// ==========================================
-// SUPERCLASE: HABITACION
-// ==========================================
+
 class Habitacion {
     #numero;
     #tipo;
@@ -120,9 +114,7 @@ class Habitacion {
     }
 }
 
-// ==========================================
-// SUBCLASES DE HABITACION (HERENCIA DE HABITACION)
-// ==========================================
+
 class HabitacionSencilla extends Habitacion {
     constructor(numero, precio) {
         super(numero, "Sencilla", 1, precio);
@@ -147,9 +139,7 @@ class HabitacionSuite extends Habitacion {
     }
 }
 
-// ==========================================
-// CLASE: ALIMENTACION
-// ==========================================
+
 class Alimentacion {
     #nombre;
     #precio;
@@ -168,9 +158,7 @@ class Alimentacion {
     }
 }
 
-// ==========================================
-// CLASE: RESERVA
-// ==========================================
+
 class Reserva {
     #numeroReserva;
     #huesped;
@@ -236,9 +224,7 @@ class Reserva {
     }
 }
 
-// ==========================================
-// CLASE: HOTEL
-// ==========================================
+
 class Hotel {
     #nombre;
     #habitaciones;
@@ -298,9 +284,7 @@ class Hotel {
     }
 }
 
-// ==========================================
-// FUNCIONES AUXILIARES
-// ==========================================
+
 function preguntar(mensaje) {
     return new Promise((resolve) => rl.question(mensaje, resolve));
 }
@@ -562,8 +546,6 @@ async function menu(hotel) {
     console.log(`${FONDO_VERDE}${BLANCO}       SISTEMA FINALIZADO       ${RESET}\n`);
     rl.close();
 }
-
-// Instanciación utilizando clases hijas (Herencia)
 const hotel = new Hotel("Hotel Paraíso Real");
 hotel.agregarHabitacion(new HabitacionSencilla(101, 100000));
 hotel.agregarHabitacion(new HabitacionDoble(102, 150000));
